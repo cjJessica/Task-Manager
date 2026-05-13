@@ -16,9 +16,20 @@ class TaskManager:
         for x in self.tasks:
             print(f"{x.display()}")
 
-    def complete_task(self, task_id):
+    def find_id(self, task_id):
         for task in self.tasks:
-            if task == task_id:
-                task.mark_completed()
-                return "The task is marked as complete"
-        return "No task had that id number"
+            if task_id == task.id:
+                return task
+    
+        return None
+        
+            
+
+    def complete_task(self, task_id):
+        task = self.find_id(task_id)
+        
+        if task is None:
+            return False
+        
+        task.mark_completed()
+        return False
