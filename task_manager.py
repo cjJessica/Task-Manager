@@ -33,3 +33,13 @@ class TaskManager:
         
         task.mark_completed()
         return False
+
+
+    def delete_task(self, task_id):
+        task = self.find_id(task_id)
+
+        if task is None:
+            return None
+
+        self.tasks.remove(task)
+        return task.title
