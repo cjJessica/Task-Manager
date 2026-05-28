@@ -1,4 +1,5 @@
 from task_manager import TaskManager
+import storage
 
 
 manager = TaskManager()
@@ -46,6 +47,16 @@ while True:
 
     
     elif menu_input.lower() == "exit":
+        save_input = input("Do you want to save your current task list? y/n: ")
+        while save_input.lower() != 'y' and save_input.lower() != 'n':
+            save_input = input("Please enter 'y' or 'n'")
+
+        if save_input.lower() == 'y':
+            storage.save_data(manager)
+            print("Your tasks are saved!")      
+        else:
+            print("All your tasks are deleted")
+
         break
     
     else:
