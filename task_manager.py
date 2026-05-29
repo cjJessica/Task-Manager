@@ -32,7 +32,7 @@ class TaskManager:
             return False
         
         task.mark_completed()
-        return False
+        return True
 
 
     def delete_task(self, task_id):
